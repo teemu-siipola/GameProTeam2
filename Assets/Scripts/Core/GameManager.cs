@@ -22,7 +22,7 @@ public class GameManager : ManagerInterface<GameManager>
     public float TimeRemaining;
     public uint PigsFenced;
 
-    private string _debugName = "[GameManager] ";
+    private const string _debugName = "[GameManager] ";
     [SerializeField] private bool _isTimerRunning;
 
     void Start()
@@ -119,12 +119,14 @@ public class GameManager : ManagerInterface<GameManager>
     *   needed
     * - - - - - - - - - */
 
+    private const uint _debugPigs = 5;
+
     private void ChangeStateOnKeyPress()
     {
         if(Input.GetKeyDown(KeyCode.UpArrow))
-            ValidateAddPigs(5);
+            ValidateAddPigs(_debugPigs);
         if(Input.GetKeyDown(KeyCode.DownArrow))
-            ValidateRemovePigs(5);
+            ValidateRemovePigs(_debugPigs);
         if(Input.GetKeyDown(KeyCode.R))
             ResetGame();
     }
