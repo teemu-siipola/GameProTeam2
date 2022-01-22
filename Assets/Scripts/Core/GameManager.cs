@@ -15,7 +15,7 @@ using UnityEngine;
 
 public class GameManager : ManagerInterface<GameManager>
 {
-    public float TimeToPlay = 30f;
+    public float AmountOfTimeToPlay = 30f;
     public uint PigsRequired = 20;
 
     public float TimeSincePlayerStarted;
@@ -63,7 +63,7 @@ public class GameManager : ManagerInterface<GameManager>
         if (_isTimerRunning)
         {
             TimeSincePlayerStarted += Time.deltaTime;
-            TimeRemaining = Mathf.Clamp(TimeToPlay - TimeSincePlayerStarted, 0, TimeToPlay);
+            TimeRemaining = Mathf.Clamp(AmountOfTimeToPlay - TimeSincePlayerStarted, 0, AmountOfTimeToPlay);
         }
     }
 
@@ -84,7 +84,7 @@ public class GameManager : ManagerInterface<GameManager>
 
         if(PigsFenced >= PigsRequired)
             EndGame(true);
-        if(TimeSincePlayerStarted >= TimeToPlay)
+        if(TimeSincePlayerStarted >= AmountOfTimeToPlay)
             EndGame(false);
     }
 
