@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Character_test
-  m_Shader: {fileID: -6465566751694194690, guid: 698dfc773372db64ba26366813a175ed, type: 3}
+  m_Name: M_Bush
+  m_Shader: {fileID: -6465566751694194690, guid: bdee7d32d92d5764fa44f1fb21e81350, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,35 +20,36 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Base_Color_Texture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
+    - _Blends_with_Extra_Layer: 0
     - _Color_is_Texture: 0
+    - _Layer_Sharpness: 0.15
+    - _Layer_Transition_Level: 0.06
     - _Metallic: 0
-    - _Outline_Emissive_Spread: 1.44
-    - _Outline_Power: 0
-    - _Outline_Sharpness: 4
-    - _Outline_emissive_power: 5
-    - _Outline_posterize: 5
-    - _Outline_spread: 0.8
-    - _Shadow_Color_Opacity: 2
+    - _Outline_Emissive_Power: 0
+    - _Outline_Emissive_Spread: 0
+    - _Outline_emissive_power: 0
     - _Smoothness: 0
     - _Texture_Tiling: 1
-    - _Tint_Opacity: 2
+    - _Tint_Opacity: 0.32
+    - _Tint_Posterize: 4
+    - _Tint_Posterize_Steps: 4
+    - _Tint_Spread: 5
     - _Tint_posterize: 4
-    - _Tint_spread: 0.67
+    - _Tint_spread: 3.2
     m_Colors:
-    - _Color: {r: 1, g: 0.24056602, b: 0.82075363, a: 0}
-    - _Outline_Color: {r: 0, g: 0, b: 0, a: 0}
-    - _Outline_Emissive_Color: {r: 0, g: 0.40614033, b: 1, a: 0}
-    - _Shadow_color_tint: {r: 0, g: 0.1088197, b: 0.5849056, a: 0}
-    - _Tint_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.38208467, g: 0.7075472, b: 0.37046102, a: 0}
+    - _Layer_Color: {r: 0.5120577, g: 0.5943396, b: 0.36725697, a: 0}
+    - _Outline_Emissive_Color: {r: 0.47285885, g: 0.7735849, b: 0.41233534, a: 0}
+    - _Tint_Color: {r: 0.076762185, g: 0.21698111, b: 0.11500371, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &173677555950826074
+--- !u!114 &1885534418072755572
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
