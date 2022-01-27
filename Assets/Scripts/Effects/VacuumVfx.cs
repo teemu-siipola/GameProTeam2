@@ -30,7 +30,6 @@ public class VacuumVfx : MonoBehaviour
     {
         _distance = _control.vacuumRadius;
         _radius = 2 * Mathf.Tan( Mathf.Deg2Rad * (_control.vacuumingAngle * 0.5f)) * _distance;
-        Debug.Log(_radius);
     }
 
     void LateUpdate()
