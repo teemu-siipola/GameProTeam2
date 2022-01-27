@@ -20,7 +20,7 @@ public class ManagerInterface<T> : MonoBehaviour where T : Component
         {
             if(singleton == null)
                 singleton = FindObjectOfType<T>();
-                if(singleton = null)
+                if(singleton == null)
                 {
                     GameObject gameObject = new GameObject();
                     gameObject.name = typeof(T).Name;

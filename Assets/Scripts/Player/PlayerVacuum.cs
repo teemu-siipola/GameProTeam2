@@ -9,7 +9,10 @@ public class PlayerVacuum : MonoBehaviour
     public float vacuumingAngle;
     public bool debug;
 
+    public int Inventory { get { return _inventory; } }
+
     bool _isVacuuming;
+    int _inventory;
     LayerMask _pigLayer;
 
     void Awake()
@@ -18,6 +21,15 @@ public class PlayerVacuum : MonoBehaviour
     }
 
     void Update()
+    {
+        PlayerInput();
+        if (_isVacuuming)
+        {
+            Vacuum();
+        }
+    }
+
+    void PlayerInput()
     {
         if (Input.GetMouseButtonDown(1))
         {
@@ -28,10 +40,9 @@ public class PlayerVacuum : MonoBehaviour
             EndVacuum();
         }
 
-        if (_isVacuuming)
-        {
-            Vacuum();
-        }
+        if (debug && Input.GetKeyDown(KeyCode.Mouse2))
+            _inventory++;
+            
     }
 
     void StartVacuum()
