@@ -15,19 +15,20 @@ using UnityEngine;
 
 public class GameManager : ManagerInterface<GameManager>
 {
+    public static System.Action GameWon;
+    public static System.Action GameLost;
     public float AmountOfTimeToPlay = 30f;
     public uint PigsRequired = 20;
 
     public float TimeSincePlayerStarted;
     public float TimeRemaining;
     public uint PigsFenced;
-
     private const string _debugName = "[GameManager] ";
     [SerializeField] private bool _isTimerRunning;
 
     void Start()
     {
-        ResetGame(); // debug, temporarily start the game right away
+        //ResetGame(); // debug, temporarily start the game right away
     }
 
     void Update()
@@ -101,6 +102,7 @@ public class GameManager : ManagerInterface<GameManager>
     private void WinGame()
     {
         // player was able to capture all pigs before time ran out
+        GameWon?.Invoke();
         Debug.LogFormat(_debugName
                         + "Player has won the game in {0} second(s)."
                         , Mathf.Round(TimeSincePlayerStarted));
@@ -109,6 +111,7 @@ public class GameManager : ManagerInterface<GameManager>
     private void FailGame()
     {
         // player ran out of time
+        GameLost?.Invoke();
         Debug.Log(_debugName + "Player has failed the game.");
     }
 

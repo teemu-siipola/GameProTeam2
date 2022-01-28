@@ -1,13 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIValues : MonoBehaviour
 {
     public PlayerVacuum playerReference;
+    public RectTransform gameEndPopup;
     public TMPro.TextMeshProUGUI inventory;
     public TMPro.TextMeshProUGUI timer;
     public TMPro.TextMeshProUGUI objective;
+    public TMPro.TextMeshProUGUI gameEndText1, gameEndText2;
+    public string victoryMessage1, victoryMessage2, defeatMessage1, defeatMessage2;
 
     int inventoryPigs;
     int totalPigs;
@@ -23,6 +25,19 @@ public class UIValues : MonoBehaviour
         }
         SetUI();
     }
+
+    void OnEnable()
+    {
+        GameManager.GameWon += GameWon;
+        GameManager.GameLost += GameLost;
+    }
+
+    void OnDisable()
+    {
+        GameManager.GameWon -= GameWon;
+        GameManager.GameLost -= GameLost;
+    }
+
     void Update()
     {
         ReadInventory();
@@ -81,5 +96,29 @@ public class UIValues : MonoBehaviour
     void WriteObjective()
     {
         objective.text = GameManager.Singleton.PigsFenced.ToString() + " / " + GameManager.Singleton.PigsRequired.ToString();
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Title");
+    }
+
+    public void Replay()
+    {
+        SceneManager.LoadScene("Level Design");
+    }
+
+    void GameWon()
+    {
+        gameEndText1.text = victoryMessage1;
+        gameEndText2.text = victoryMessage2;
+        gameEndPopup.gameObject.SetActive(true);
+    }
+
+    void GameLost()
+    {
+        gameEndText1.text = defeatMessage1;
+        gameEndText2.text = defeatMessage2;
+        gameEndPopup.gameObject.SetActive(true);
     }
 }
