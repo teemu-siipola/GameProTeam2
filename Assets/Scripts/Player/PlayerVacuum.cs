@@ -12,12 +12,25 @@ public class PlayerVacuum : MonoBehaviour
     public int Inventory { get { return _inventory; } }
 
     bool _isVacuuming;
+    bool _stopInput;
     int _inventory;
     LayerMask _pigLayer;
 
     void Awake()
     {
         _pigLayer = 1 << LayerMask.NameToLayer("Pig");
+    }
+
+    void OnEnable()
+    {
+        GameManager.GameWon += GameEnded;
+        GameManager.GameLost += GameEnded;
+    }
+
+    void OnDisable()
+    {
+        GameManager.GameWon -= GameEnded;
+        GameManager.GameLost -= GameEnded;
     }
 
     void Update()
@@ -31,6 +44,8 @@ public class PlayerVacuum : MonoBehaviour
 
     void PlayerInput()
     {
+        if (_stopInput) return;
+
         if (Input.GetMouseButtonDown(1))
         {
             StartVacuum();
@@ -38,6 +53,11 @@ public class PlayerVacuum : MonoBehaviour
         else if (Input.GetMouseButtonUp(1))
         {
             EndVacuum();
+        }
+
+        if(Input.GetMouseButtonDown(0) && _inventory > 0)
+        {
+            ShootPig();
         }
 
         if (debug && Input.GetKeyDown(KeyCode.Mouse2))
@@ -96,5 +116,15 @@ public class PlayerVacuum : MonoBehaviour
         Vector3 playerToPig = pigPos - playerPos;
         float angle = Vector3.Angle(transform.forward, playerToPig);
         return angle < vacuumingAngle; 
+    }
+
+    void ShootPig()
+    {
+        _inventory--;
+    }
+
+    void GameEnded()
+    {
+        _stopInput = true;
     }
 }

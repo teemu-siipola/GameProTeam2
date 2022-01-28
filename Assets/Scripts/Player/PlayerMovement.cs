@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 _movementInput = new Vector3();
     Vector3 _lookAtPosition;
 
+    bool _stopInput;
+
     void Awake()
     {
         _groundLayer = 1 << LayerMask.NameToLayer("Ground");
@@ -19,10 +21,30 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
+    void OnEnable()
+    {
+        GameManager.GameWon += GameEnded;
+        GameManager.GameLost += GameEnded;
+    }
+
+    void OnDisable()
+    {
+        GameManager.GameWon -= GameEnded;
+        GameManager.GameLost -= GameEnded;
+    }
+
+    void Start()
+    {
+        GameManager.Singleton.ResetGame();
+    }
+
     void Update()
     {
-        MovementInput();
-        _lookAtPosition = GetMousePosition();
+        if (!_stopInput)
+        {
+            MovementInput();
+            _lookAtPosition = GetMousePosition();
+        }
     }
 
     void FixedUpdate()
@@ -59,6 +81,12 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.MoveRotation(Quaternion.LookRotation(_lookAtPosition - transform.position, Vector3.up));
         }
+    }
+
+    void GameEnded()
+    {
+        _stopInput = true;
+        _movementInput = Vector3.zero;
     }
 
 }
