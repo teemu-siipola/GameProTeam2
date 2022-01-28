@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4964964791983364549}
   - component: {fileID: 5671390255225174787}
   - component: {fileID: 8474856954713960824}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3353106289626062451}
   - component: {fileID: 7358756200491395511}
   - component: {fileID: 5592959016449874129}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 3847864405459032890}
   - component: {fileID: 2832091347251137152}
   - component: {fileID: 4890639048298336647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 3197962040610600428}
   - component: {fileID: 9052488995352222223}
   - component: {fileID: 5931460704456077286}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: coolglasses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8990350983032206741}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 1559929152763364905}
   - component: {fileID: 2414448098787669867}
   - component: {fileID: 3983723251406298716}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,6 +520,10 @@ PrefabInstance:
       value: VacuumVfx
       objectReference: {fileID: 0}
     - target: {fileID: 3812316088234807135, guid: 95909563be04dae40a7cb427e975d763, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812316088234807135, guid: 95909563be04dae40a7cb427e975d763, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -598,9 +602,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 34b0aa57874982541ae91e3a45023857, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1018664272722485354, guid: 34b0aa57874982541ae91e3a45023857, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 34b0aa57874982541ae91e3a45023857, type: 3}
       propertyPath: m_Name
       value: SM_Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 34b0aa57874982541ae91e3a45023857, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6317578925029434746, guid: 34b0aa57874982541ae91e3a45023857, type: 3}
       propertyPath: m_Materials.Array.data[0]
