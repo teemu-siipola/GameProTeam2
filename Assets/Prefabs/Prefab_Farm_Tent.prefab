@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 452556567710487071}
   - component: {fileID: 6046547386306075439}
   - component: {fileID: 4128803484766860265}
+  - component: {fileID: 5429732118300740280}
   m_Layer: 0
   m_Name: Prefab_Farm_Tent
   m_TagString: Untagged
@@ -60,6 +61,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 4, z: 0.29}
   m_Center: {x: -4.3, y: 1.98, z: 2.26}
+--- !u!65 &5429732118300740280
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935819977944670718}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 1, z: 5.47}
+  m_Center: {x: -2.22, y: 4.39, z: 0}
 --- !u!1001 &5679294980670456337
 PrefabInstance:
   m_ObjectHideFlags: 0
