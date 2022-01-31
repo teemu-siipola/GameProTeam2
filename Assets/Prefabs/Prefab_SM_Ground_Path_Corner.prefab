@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8076391132067224205}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Prefab_SM_Ground_Path_Corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,6 +86,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3eea6418e6fdfaa4690d9a99e2754def, type: 3}
       propertyPath: m_Name
       value: SM_Ground_Path_Corner
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3eea6418e6fdfaa4690d9a99e2754def, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3eea6418e6fdfaa4690d9a99e2754def, type: 3}
