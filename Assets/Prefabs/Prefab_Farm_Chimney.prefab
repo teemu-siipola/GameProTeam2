@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 2b72a26341440da4a9dd7d118c8baf09, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e20b903f78c004241829519efbc2fbad, type: 2}
+      objectReference: {fileID: 2100000, guid: 0a06d08d1a2a0ea48aaa8c241fa230a9, type: 2}
     - target: {fileID: 919132149155446097, guid: 2b72a26341440da4a9dd7d118c8baf09, type: 3}
       propertyPath: m_Name
       value: SM_Farm_Chimney

@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 3fde8fae76c59e7439f2382dd7034a1b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 161eac3dcc856e84186ff47985d0442e, type: 2}
+      objectReference: {fileID: 2100000, guid: 0a06d08d1a2a0ea48aaa8c241fa230a9, type: 2}
     - target: {fileID: 919132149155446097, guid: 3fde8fae76c59e7439f2382dd7034a1b, type: 3}
       propertyPath: m_Name
       value: SM_Stepping_Stone
