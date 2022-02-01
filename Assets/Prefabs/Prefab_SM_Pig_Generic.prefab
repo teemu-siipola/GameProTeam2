@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5828640113034620079}
   - component: {fileID: 7639019372604244497}
   m_Layer: 0
-  m_Name: Prefab_Pig_Generic
+  m_Name: Prefab_SM_Pig_Generic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
