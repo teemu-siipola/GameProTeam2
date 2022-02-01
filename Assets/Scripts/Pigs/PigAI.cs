@@ -18,7 +18,10 @@ using UnityEngine;
 public class PigAI : MonoBehaviour
 {
     [SerializeField] public PigState _pigState;
-    [SerializeField] private float _pigSpeedMultiplier;
+    [SerializeField] private float _pigSpeedWalkingAround;
+    [SerializeField] private float _pigSpeedWalkingChased; // breaks if too fast
+    [SerializeField] private float _pigSpeedRollingAround;
+    [SerializeField] private float _pigSpeedRollingChased;
     [SerializeField] private float _maximumPigVelocity;
     private PlayerSensor _sensor;
     private GameObject _sensorObject;
@@ -133,13 +136,13 @@ public class PigAI : MonoBehaviour
                 if(!_isPlayerDetected)
                     if(_rigidbody.velocity.magnitude < _maximumPigVelocity)
                     {
-                        _rigidbody.AddForce(_newDirection * _pigSpeedMultiplier * 25 * Time.fixedDeltaTime);
+                        _rigidbody.AddForce(_newDirection * _pigSpeedRollingAround * 25 * Time.fixedDeltaTime);
                     }
 
                 if(_isPlayerDetected)
                     if(_rigidbody.velocity.magnitude < (_maximumPigVelocity*30f))
                     {
-                        _rigidbody.AddForce((_playerDirection * -1) * (_playerForce * 0.5f) * _pigSpeedMultiplier * Time.fixedDeltaTime);
+                        _rigidbody.AddForce((_playerDirection * -1) * (_playerForce * 0.5f) * _pigSpeedRollingChased * Time.fixedDeltaTime);
                     }
                 break;
 
@@ -147,7 +150,7 @@ public class PigAI : MonoBehaviour
                 if(!_isPlayerDetected && _playerTriggered == false)
                     if(_rigidbody.velocity.magnitude < _maximumPigVelocity)
                     {
-                        transform.position = Vector3.Lerp(transform.position, transform.position - _splineDirection, Time.fixedDeltaTime * _pigSpeedMultiplier * 0.1f);
+                        transform.position = Vector3.Lerp(transform.position, transform.position - _splineDirection, Time.fixedDeltaTime * _pigSpeedWalkingAround * 0.1f);
                     }
                 if(_isPlayerDetected)
                     if(true)
@@ -162,7 +165,7 @@ public class PigAI : MonoBehaviour
                         else
                             yjump = transform.position.y * 0.001f;*/
 
-                        transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(_playerDirection.x * -1, 0, _playerDirection.z * -1).normalized * _pigSpeedMultiplier * (_playerForce*5f) * 0.0001f, Time.fixedDeltaTime);
+                        transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(_playerDirection.x * -1, 0, _playerDirection.z * -1).normalized * _pigSpeedWalkingChased * (_playerForce*5f) * 0.0001f, Time.fixedDeltaTime);
                     }
                 break;
         }

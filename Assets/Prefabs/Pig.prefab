@@ -76,7 +76,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 10
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &6521355716858707067
 MonoBehaviour:
@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 6521355717892339537}
   - component: {fileID: 6521355717892339536}
   - component: {fileID: 6521355717892339630}
+  - component: {fileID: 661711563}
   m_Layer: 7
   m_Name: Pig
   m_TagString: Untagged
@@ -154,8 +155,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pigState: 0
-  _pigSpeedMultiplier: 500
+  _pigSpeedWalkingAround: 30
+  _pigSpeedWalkingChased: 50
+  _pigSpeedRollingAround: 30
+  _pigSpeedRollingChased: 250
   _maximumPigVelocity: 1
+--- !u!135 &661711563
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521355717892339539}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.72
+  m_Center: {x: 0, y: 0.72, z: 0}
 --- !u!1001 &5928552202197467115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -215,7 +232,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_Pig_Generic
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7639019372604244497, guid: d2986c2b28a328645aefdbb8806f0ea6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2986c2b28a328645aefdbb8806f0ea6, type: 3}
 --- !u!4 &190575722078901060 stripped
 Transform:
