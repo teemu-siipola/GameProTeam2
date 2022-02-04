@@ -104,7 +104,7 @@ public class PlayerVacuum : MonoBehaviour
             {
                 PigAI pig = col.GetComponent<PigAI>();
                 if (pig != null && pig._pigState != PigAI.PigState.Vacuuming)
-                    StartCoroutine(VacuumPigRoutine(pig));
+                    StartCoroutine(VacuumPigRoutine2(pig));
             }
         }
     }
@@ -131,7 +131,7 @@ public class PlayerVacuum : MonoBehaviour
         pig.gameObject.SetActive(true);
         PigPhysicsFunctions physics = pig.GetComponent<PigPhysicsFunctions>();
         physics.TurnPhysicsOn();
-        physics.AddForce((transform.forward * 2f + transform.up).normalized * 16f);
+        physics.AddForce((transform.forward * 1.5f + transform.up).normalized * 13f);
         pig.StartCoroutine(pig.ChangeToRollingAfterSeconds(4f));
     }
 
@@ -181,5 +181,63 @@ public class PlayerVacuum : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             ator.ResetAnimations();
         }
+    }
+
+    IEnumerator VacuumPigRoutine2(PigAI pig)
+    {
+        //move towards target position with constant speed
+        pig._pigState = PigAI.PigState.Vacuuming;
+        PigPhysicsFunctions physics = pig.GetComponent<PigPhysicsFunctions>();
+        physics.TurnPhysicsOff();
+
+        Quaternion startRotation = pig.transform.rotation;
+        float pigVacuumSpeed = 5f;
+        float distance = Vector3.Distance(pig.transform.position, _vfx.transform.position);
+        float animationTime = 1f;
+        float rotationTime = 1f;
+        float acceleration = 2.5f;
+        bool once = false;
+        while (_isVacuuming && animationTime > 0f && PigInSuctionSector(pig.transform))
+        {
+            yield return null;
+            Quaternion target = Quaternion.LookRotation(_vfx.transform.position - pig.transform.position);
+            Quaternion rot;
+            rot = Quaternion.Slerp(startRotation, target, (1f - rotationTime) / 1f);
+            rotationTime = Mathf.Clamp(rotationTime -= Time.deltaTime, 0f, 1f);
+            pig.transform.rotation = rot;
+
+            if (distance > 1f)
+            {
+                Vector3 movementDelta = Time.deltaTime * pigVacuumSpeed * (_vfx.transform.position - pig.transform.position).normalized;
+                pig.transform.position += movementDelta;
+                distance = Vector3.Distance(pig.transform.position, _vfx.transform.position);
+                pigVacuumSpeed += acceleration * Time.deltaTime;
+            }
+            //player reached, enter 'seconds mode
+            else
+            {
+                if (!once)
+                {
+                    pig.GetComponent<PigAnimator>().Vacuum();
+                    once = true;
+                }
+                pig.transform.position = _vfx.transform.position + _vfx.transform.forward;
+                animationTime -= Time.deltaTime;
+            }
+        }
+
+        pig.GetComponent<PigAnimator>().ResetAnimations();
+        if (_isVacuuming && PigInSuctionSector(pig.transform))
+        {
+            StorePig(pig);
+        }
+        else
+        {
+            pig.StartCoroutine(pig.ChangeToRollingAfterSeconds(0.2f));
+            physics.TurnPhysicsOn();
+            yield return new WaitForSeconds(0.2f);
+            pig.GetComponent<PigAnimator>().ResetAnimations();
+        }
+
     }
 }
