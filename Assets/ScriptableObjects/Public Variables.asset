@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovementSpeed: 10
   playerVacuumAngle: 10
-  playerVacuumRadius: 30
-  pigVacuumSpeedTowardsPlayer: 5
-  pigVacuumAccelerationTowardsPlayer: 2.5
+  playerVacuumRadius: 5
+  pigVacuumSpeedTowardsPlayer: 10
+  pigVacuumAccelerationTowardsPlayer: 10
   pigShootingForce: 13
   pigShootUpwardBias: 0.666
   playTime: 90
