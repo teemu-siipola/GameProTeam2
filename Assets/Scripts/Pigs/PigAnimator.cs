@@ -15,11 +15,13 @@ public class PigAnimator : MonoBehaviour
 
     public void ResetAnimations()
     {
-        _animator.Play(_reset, 0);
+        _animator.SetBool(_vacuum, false);
+        //_animator.Play(_reset, 0);
     }
 
     public void Vacuum()
     {
-        _animator.SetTrigger(_vacuum);
+        //_animator.SetTrigger(_vacuum);
+        _animator.SetBool(_vacuum, true);
     }
 }

@@ -168,11 +168,18 @@ public class PlayerVacuum : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-
+        yield return null;
+        ator.ResetAnimations();
         if (_isVacuuming)
         {
-            ator.ResetAnimations();
             StorePig(pig);
+        }
+        else
+        {
+            pig.StartCoroutine(pig.ChangeToRollingAfterSeconds(0.2f));
+            physics.TurnPhysicsOn();
+            yield return new WaitForSeconds(0.2f);
+            ator.ResetAnimations();
         }
     }
 }
