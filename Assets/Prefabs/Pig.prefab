@@ -159,10 +159,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pigState: 0
   _pigSpeedWalkingAround: 30
-  _pigSpeedWalkingChased: 50
+  _pigSpeedWalkingChased: 30
   _pigSpeedRollingAround: 30
-  _pigSpeedRollingChased: 250
-  _maximumPigVelocity: 1
+  _pigSpeedRollingChased: 30
+  _maximumPigVelocity: 5
 --- !u!114 &1966144075262935863
 MonoBehaviour:
   m_ObjectHideFlags: 0
