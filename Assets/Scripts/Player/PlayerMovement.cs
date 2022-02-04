@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         GameManager.Singleton.ResetGame();
+        movementSpeed = GameManager.Singleton.variables.playerMovementSpeed;
     }
 
     void Update()

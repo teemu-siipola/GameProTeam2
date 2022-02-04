@@ -17,9 +17,9 @@ public class GameManager : ManagerInterface<GameManager>
 {
     public static System.Action GameWon;
     public static System.Action GameLost;
-    public float AmountOfTimeToPlay = 30f;
     public uint PigsRequired = 20;
 
+    public PublicVariables variables;
     public float TimeSincePlayerStarted;
     public float TimeRemaining;
     public uint PigsFenced;
@@ -64,7 +64,7 @@ public class GameManager : ManagerInterface<GameManager>
         if (_isTimerRunning)
         {
             TimeSincePlayerStarted += Time.deltaTime;
-            TimeRemaining = Mathf.Clamp(AmountOfTimeToPlay - TimeSincePlayerStarted, 0, AmountOfTimeToPlay);
+            TimeRemaining = Mathf.Clamp(variables.playTime - TimeSincePlayerStarted, 0, variables.playTime);
         }
     }
 
@@ -85,7 +85,7 @@ public class GameManager : ManagerInterface<GameManager>
 
         if(PigsFenced >= PigsRequired)
             EndGame(true);
-        if(TimeSincePlayerStarted >= AmountOfTimeToPlay)
+        if(TimeSincePlayerStarted >= variables.playTime)
             EndGame(false);
     }
 

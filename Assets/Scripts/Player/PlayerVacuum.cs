@@ -34,6 +34,12 @@ public class PlayerVacuum : MonoBehaviour
         GameManager.GameLost -= GameEnded;
     }
 
+    void Start()
+    {
+        vacuumRadius = GameManager.Singleton.variables.playerVacuumRadius;
+        vacuumingAngle = GameManager.Singleton.variables.playerVacuumAngle;
+    }
+
     void Update()
     {
         PlayerInput();
@@ -131,7 +137,7 @@ public class PlayerVacuum : MonoBehaviour
         pig.gameObject.SetActive(true);
         PigPhysicsFunctions physics = pig.GetComponent<PigPhysicsFunctions>();
         physics.TurnPhysicsOn();
-        physics.AddForce((transform.forward * 1.5f + transform.up).normalized * 13f);
+        physics.AddForce((transform.forward + transform.up * GameManager.Singleton.variables.pigShootUpwardBias).normalized * GameManager.Singleton.variables.pigShootingForce);
         pig.StartCoroutine(pig.ChangeToRollingAfterSeconds(4f));
     }
 
@@ -191,11 +197,11 @@ public class PlayerVacuum : MonoBehaviour
         physics.TurnPhysicsOff();
 
         Quaternion startRotation = pig.transform.rotation;
-        float pigVacuumSpeed = 5f;
+        float pigVacuumSpeed = GameManager.Singleton.variables.pigVacuumSpeedTowardsPlayer;
         float distance = Vector3.Distance(pig.transform.position, _vfx.transform.position);
         float animationTime = 1f;
         float rotationTime = 1f;
-        float acceleration = 2.5f;
+        float acceleration = GameManager.Singleton.variables.pigVacuumAccelerationTowardsPlayer;
         bool once = false;
         while (_isVacuuming && animationTime > 0f && PigInSuctionSector(pig.transform))
         {
