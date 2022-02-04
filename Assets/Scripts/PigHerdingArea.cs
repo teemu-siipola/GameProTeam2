@@ -8,7 +8,7 @@ public class PigHerdingArea : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Pig"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Pig") && other.GetComponent<PigAI>() != null)
         {
             GameManager.Singleton.ValidateAddPigs(1);
         }
@@ -16,7 +16,7 @@ public class PigHerdingArea : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Pig"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Pig") && other.GetComponent<PigAI>() != null)
         {
             GameManager.Singleton.ValidateRemovePigs(1);
         }

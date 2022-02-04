@@ -43,7 +43,7 @@ public class PigAI : MonoBehaviour
     {
         Rolling,
         Walking,
-        Vacuuming // Does not do anything
+        Vacuuming, // Does not do anything
     }
 
     void Awake()
@@ -227,6 +227,11 @@ public class PigAI : MonoBehaviour
         }
     }
 
+    public IEnumerator ChangeToRollingAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        _pigState = PigState.Rolling;
+    }
 }
 
 // now with 50% more artificial intelligence! (and 50% less human intelligence)

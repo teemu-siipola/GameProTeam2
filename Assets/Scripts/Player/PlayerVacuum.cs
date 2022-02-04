@@ -15,6 +15,7 @@ public class PlayerVacuum : MonoBehaviour
     bool _stopInput;
     int _inventory;
     LayerMask _pigLayer;
+    List<PigAI> _storedPigList = new List<PigAI>();
 
     void Awake()
     {
@@ -101,7 +102,9 @@ public class PlayerVacuum : MonoBehaviour
         {
             if (PigInSuctionSector(col.transform))
             {
-                //Suck pig here
+                PigAI pig = col.GetComponent<PigAI>();
+                if (pig != null && pig._pigState != PigAI.PigState.Vacuuming)
+                    StartCoroutine(VacuumPigRoutine(pig));
             }
         }
     }
@@ -121,10 +124,55 @@ public class PlayerVacuum : MonoBehaviour
     void ShootPig()
     {
         _inventory--;
+        PigAI pig = _storedPigList[ _storedPigList.Count - 1];
+        _storedPigList.Remove(pig);
+
+        pig.transform.position = _vfx.transform.position;
+        pig.gameObject.SetActive(true);
+        PigPhysicsFunctions physics = pig.GetComponent<PigPhysicsFunctions>();
+        physics.TurnPhysicsOn();
+        physics.AddForce((transform.forward * 2f + transform.up).normalized * 16f);
+        pig.StartCoroutine(pig.ChangeToRollingAfterSeconds(4f));
     }
 
     void GameEnded()
     {
         _stopInput = true;
+    }
+
+    void StorePig(PigAI pig)
+    {
+        pig.gameObject.SetActive(false);
+        _inventory++;
+        _storedPigList.Add(pig);
+    }
+
+    IEnumerator VacuumPigRoutine(PigAI pig)
+    {
+        pig._pigState = PigAI.PigState.Vacuuming;
+        PigPhysicsFunctions physics = pig.GetComponent<PigPhysicsFunctions>();
+        physics.TurnPhysicsOff();
+        PigAnimator ator = pig.GetComponent<PigAnimator>();
+        ator.Vacuum();
+        Vector3 originalPosition = pig.transform.position;
+        float lerpTime = 3f;
+        float timer = 0f;
+        Quaternion startRotation = pig.transform.rotation;
+        while (_isVacuuming && timer < lerpTime)
+        {
+            pig.transform.position = Vector3.Lerp(originalPosition, _vfx.transform.position + _vfx.transform.forward, timer / lerpTime);
+            Quaternion target = Quaternion.LookRotation(transform.position - pig.transform.position);
+            Quaternion rot;
+            rot = Quaternion.Slerp(startRotation, target, timer / (lerpTime * 0.5f));
+            pig.transform.rotation = rot;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        if (_isVacuuming)
+        {
+            ator.ResetAnimations();
+            StorePig(pig);
+        }
     }
 }

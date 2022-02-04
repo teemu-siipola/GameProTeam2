@@ -101,7 +101,10 @@ GameObject:
   - component: {fileID: 6521355717892339537}
   - component: {fileID: 6521355717892339536}
   - component: {fileID: 6521355717892339630}
+  - component: {fileID: 1966144075262935863}
   - component: {fileID: 661711563}
+  - component: {fileID: 1546892848003989117}
+  - component: {fileID: 6532888434838683576}
   m_Layer: 7
   m_Name: Pig
   m_TagString: Untagged
@@ -160,6 +163,18 @@ MonoBehaviour:
   _pigSpeedRollingAround: 30
   _pigSpeedRollingChased: 250
   _maximumPigVelocity: 1
+--- !u!114 &1966144075262935863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521355717892339539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4df2cf73bcf59419d9d633301572d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &661711563
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -173,6 +188,38 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.72
   m_Center: {x: 0, y: 0.72, z: 0}
+--- !u!95 &1546892848003989117
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521355717892339539}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7f15e11421bd52f4a9783bcfd6525494, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6532888434838683576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521355717892339539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227ad75739eaf964ebfd932d6d543817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5928552202197467115
 PrefabInstance:
   m_ObjectHideFlags: 0
