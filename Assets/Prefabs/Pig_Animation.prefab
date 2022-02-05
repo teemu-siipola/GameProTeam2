@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &516671542146779414
+--- !u!1 &470846865517333189
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,36 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 717390806504586739}
+  - component: {fileID: 8091937285706910071}
   m_Layer: 0
-  m_Name: Prefab_Pig_animation
+  m_Name: Pig_Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &717390806504586739
+--- !u!4 &8091937285706910071
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516671542146779414}
+  m_GameObject: {fileID: 470846865517333189}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2240419668650972589}
+  - {fileID: 5808173904331440670}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &5582744846326637583
+--- !u!1001 &212991272004285372
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 717390806504586739}
+    m_TransformParent: {fileID: 8091937285706910071}
     m_Modifications:
     - target: {fileID: -4940381360820135933, guid: c7ac4776d23682c45a16eb86f020550b, type: 3}
       propertyPath: m_Name
@@ -97,34 +97,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 104bed0006969984c913824be51fd2d2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: -194238164289955547, guid: c7ac4776d23682c45a16eb86f020550b, type: 3}
---- !u!4 &2240419668650972589 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -3283558390662663774, guid: c7ac4776d23682c45a16eb86f020550b, type: 3}
-  m_PrefabInstance: {fileID: 5582744846326637583}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3471791628387230555 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -191494464470841516, guid: c7ac4776d23682c45a16eb86f020550b, type: 3}
-  m_PrefabInstance: {fileID: 5582744846326637583}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8505568550238026764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6983ab2008f7a9f499b3f8cd6bec328d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &8505568550238026764 stripped
+--- !u!1 &4144595049936071615 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4940381360820135933, guid: c7ac4776d23682c45a16eb86f020550b, type: 3}
-  m_PrefabInstance: {fileID: 5582744846326637583}
+  m_PrefabInstance: {fileID: 212991272004285372}
   m_PrefabAsset: {fileID: 0}
---- !u!320 &5582744845194709341
+--- !u!320 &212991272004285375
 PlayableDirector:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8505568550238026764}
+  m_GameObject: {fileID: 4144595049936071615}
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: c2bc1a23654beae4fb9ef24866671faf, type: 2}
@@ -135,4 +119,20 @@ PlayableDirector:
   m_SceneBindings: []
   m_ExposedReferences:
     m_References:
-    - ce26782cd4959224ab542e8a2f30208d: {fileID: 3471791628387230555}
+    - d868c6f78a3a9534cbbe65a00960aa98: {fileID: 9197228546778592488}
+--- !u!4 &5808173904331440670 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3283558390662663774, guid: c7ac4776d23682c45a16eb86f020550b, type: 3}
+  m_PrefabInstance: {fileID: 212991272004285372}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9197228546778592488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -191494464470841516, guid: c7ac4776d23682c45a16eb86f020550b, type: 3}
+  m_PrefabInstance: {fileID: 212991272004285372}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4144595049936071615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6983ab2008f7a9f499b3f8cd6bec328d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
