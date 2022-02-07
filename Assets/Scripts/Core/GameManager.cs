@@ -20,6 +20,7 @@ public class GameManager : ManagerInterface<GameManager>
     public uint PigsRequired = 20;
 
     public PublicVariables variables;
+    public SoundEffects sfx;
     public float TimeSincePlayerStarted;
     public float TimeRemaining;
     public uint PigsFenced;
@@ -103,6 +104,7 @@ public class GameManager : ManagerInterface<GameManager>
     {
         // player was able to capture all pigs before time ran out
         GameWon?.Invoke();
+        GetComponent<AudioSource>().PlayOneShot(sfx.gameWon);
         Debug.LogFormat(_debugName
                         + "Player has won the game in {0} second(s)."
                         , Mathf.Round(TimeSincePlayerStarted));
@@ -112,6 +114,7 @@ public class GameManager : ManagerInterface<GameManager>
     {
         // player ran out of time
         GameLost?.Invoke();
+        GetComponent<AudioSource>().PlayOneShot(sfx.gameLost);
         Debug.Log(_debugName + "Player has failed the game.");
     }
 

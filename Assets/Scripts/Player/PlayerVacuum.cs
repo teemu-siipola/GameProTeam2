@@ -8,6 +8,8 @@ public class PlayerVacuum : MonoBehaviour
     public float vacuumRadius;
     public float vacuumingAngle;
     public bool debug;
+    public AudioSource sfxSource, sfxBackup, loopSource;
+    public SoundEffects sfx;
 
     public int Inventory { get { return _inventory; } }
 
@@ -62,10 +64,13 @@ public class PlayerVacuum : MonoBehaviour
             EndVacuum();
         }
 
-        if(Input.GetMouseButtonDown(0) && _inventory > 0)
+        if(Input.GetMouseButtonDown(0))
         {
-            ShootPig();
+            if (_inventory > 0)
+                StartCoroutine(ShootPig());
+            else sfxSource.PlayOneShot(sfx.vacuumEmpty);
         }
+        
 
         if (debug && Input.GetKeyDown(KeyCode.Mouse2))
             _inventory++;
@@ -78,6 +83,10 @@ public class PlayerVacuum : MonoBehaviour
         if (_vfx != null)
         {
             _vfx.Play();
+            sfxSource.PlayOneShot(sfx.vacuumStart);
+            //sfxLoop.Play();
+            loopSource.clip = sfx.vacuumLoop;
+            loopSource.PlayDelayed(sfx.vacuumStart.length);
         }
     }
 
@@ -88,6 +97,9 @@ public class PlayerVacuum : MonoBehaviour
         {
             _vfx.Stop();
         }
+        loopSource.Stop();
+        sfxSource.PlayOneShot(sfx.vacuumEnd);
+        //sfxEnd.PlayDelayed(0.1f);
     }
 
     void Vacuum()
@@ -127,9 +139,11 @@ public class PlayerVacuum : MonoBehaviour
         return angle < vacuumingAngle; 
     }
 
-    void ShootPig()
+    IEnumerator ShootPig()
     {
+        sfxSource.PlayOneShot(sfx.vacuumSpit);
         _inventory--;
+        yield return new WaitForSeconds(0.4f);
         PigAI pig = _storedPigList[ _storedPigList.Count - 1];
         _storedPigList.Remove(pig);
 
@@ -139,6 +153,8 @@ public class PlayerVacuum : MonoBehaviour
         physics.TurnPhysicsOn();
         physics.AddForce((transform.forward + transform.up * GameManager.Singleton.variables.pigShootUpwardBias).normalized * GameManager.Singleton.variables.pigShootingForce);
         pig.StartCoroutine(pig.ChangeToRollingAfterSeconds(4f));
+        PigAnimator ator = pig.GetComponent<PigAnimator>();
+        ator.Spit();
     }
 
     void GameEnded()
@@ -148,6 +164,8 @@ public class PlayerVacuum : MonoBehaviour
 
     void StorePig(PigAI pig)
     {
+        sfxSource.PlayOneShot(sfx.vacuumSuck);
+        sfxBackup.PlayOneShot(sfx.RandomPigSucked());
         pig.gameObject.SetActive(false);
         _inventory++;
         _storedPigList.Add(pig);

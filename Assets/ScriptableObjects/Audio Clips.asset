@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f80fed7985f1d4da0f1878758c3b35, type: 3}
+  m_Name: Audio Clips
+  m_EditorClassIdentifier: 
+  vacuumEmpty: {fileID: 8300000, guid: 8c34142629473714b9d2c7569276c396, type: 3}
+  vacuumSpit: {fileID: 8300000, guid: 12a0123401902094f8cfe3e4e50057cc, type: 3}
+  vacuumSuck: {fileID: 8300000, guid: b7aaaa6ccd39a664a8aff7a74a26483e, type: 3}
+  vacuumEnd: {fileID: 8300000, guid: 9d9e2302902558447b500a058952a3af, type: 3}
+  vacuumLoop: {fileID: 8300000, guid: a1ed28358ced44a4ea9f2d7b70806613, type: 3}
+  vacuumStart: {fileID: 8300000, guid: 1e4c1961b5e4ca548a27299eb3c6b124, type: 3}
+  pigSnort1: {fileID: 8300000, guid: 0c27a0f4951e68d48841eb916cb8b954, type: 3}
+  pigSnort2: {fileID: 8300000, guid: cfff3a00496284347a039287e65b336e, type: 3}
+  pigSnort3: {fileID: 8300000, guid: 4fb9eda9ffcd50a4ebebc6ac428deff2, type: 3}
+  pigSnort4: {fileID: 8300000, guid: 749f739e02ad87d4cabb989367facde6, type: 3}
+  pigSuffer1: {fileID: 8300000, guid: 8405c19a5cfe7c84c9781714b4e7f10e, type: 3}
+  pigSuffer2: {fileID: 8300000, guid: 78539fa9ae82fbf4788b70831ad0d4e5, type: 3}
+  pigSucked1: {fileID: 8300000, guid: 676dbf98be230b949bcfd961f65e0015, type: 3}
+  pigSucked2: {fileID: 8300000, guid: a4b7d7c259abadd4e8e427b34891af09, type: 3}
+  pigSucked3: {fileID: 8300000, guid: 5f72ad7fe18ae1a47b67e550f195cecc, type: 3}
+  gameWon: {fileID: 8300000, guid: 3ea34071a78507d469259246a548785a, type: 3}
+  gameLost: {fileID: 8300000, guid: 5f0f8c651d1de1040b54ec4d880d9e50, type: 3}

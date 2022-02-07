@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PigAnimator : MonoBehaviour
 {
+    public Animator secondaryAnimator;
     private Animator _animator;
     private int _reset, _vacuum;
     void Awake()
@@ -23,5 +24,11 @@ public class PigAnimator : MonoBehaviour
     {
         //_animator.SetTrigger(_vacuum);
         _animator.SetBool(_vacuum, true);
+    }
+
+    public void Spit()
+    {
+        secondaryAnimator.Play("Spin");
+        //_animator.Play("Spin");
     }
 }
