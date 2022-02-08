@@ -12,6 +12,7 @@ public class SoundEffects : ScriptableObject
     public AudioClip vacuumLoop;
     public AudioClip vacuumStart;
 
+    public AudioClip pigIdle;
     public AudioClip pigSnort1;
     public AudioClip pigSnort2;
     public AudioClip pigSnort3;
@@ -33,6 +34,19 @@ public class SoundEffects : ScriptableObject
             case 0: return pigSucked1;
             case 1: return pigSucked2;
             default: return pigSucked3;
+        }
+    }
+
+    public AudioClip RandomPigSound()
+    {
+        int r = Random.Range(0, 5);
+        switch (r)
+        {
+            case 0: return pigIdle;
+            case 1: return pigSnort1;
+            case 2: return pigSnort2;
+            case 3: return pigSnort3;
+            default: return pigSnort4;
         }
     }
 }

@@ -18,6 +18,7 @@ MonoBehaviour:
   vacuumEnd: {fileID: 8300000, guid: 9d9e2302902558447b500a058952a3af, type: 3}
   vacuumLoop: {fileID: 8300000, guid: a1ed28358ced44a4ea9f2d7b70806613, type: 3}
   vacuumStart: {fileID: 8300000, guid: 1e4c1961b5e4ca548a27299eb3c6b124, type: 3}
+  pigIdle: {fileID: 8300000, guid: cac72a5e6e62b17479ee772953e9dfed, type: 3}
   pigSnort1: {fileID: 8300000, guid: 0c27a0f4951e68d48841eb916cb8b954, type: 3}
   pigSnort2: {fileID: 8300000, guid: cfff3a00496284347a039287e65b336e, type: 3}
   pigSnort3: {fileID: 8300000, guid: 4fb9eda9ffcd50a4ebebc6ac428deff2, type: 3}
