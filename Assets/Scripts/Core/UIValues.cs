@@ -5,6 +5,7 @@ public class UIValues : MonoBehaviour
 {
     public PlayerVacuum playerReference;
     public RectTransform gameEndPopup;
+    public SoundEffects sfx;
     public TMPro.TextMeshProUGUI inventory;
     public TMPro.TextMeshProUGUI timer;
     public TMPro.TextMeshProUGUI objective;
@@ -15,6 +16,7 @@ public class UIValues : MonoBehaviour
     int totalPigs;
     uint fencedPigs;
     int seconds;
+    AudioSource _source;
 
     void Start()
     {
@@ -24,6 +26,7 @@ public class UIValues : MonoBehaviour
             if (scenePlayer) playerReference = scenePlayer.GetComponent<PlayerVacuum>();
         }
         SetUI();
+        _source = GetComponent<AudioSource>();
     }
 
     void OnEnable()
@@ -100,12 +103,14 @@ public class UIValues : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("Title");
+        _source.PlayOneShot(sfx.menuClick);
+        SceneManager.LoadSceneAsync("Title");
     }
 
     public void Replay()
     {
-        SceneManager.LoadScene("Level Design");
+        _source.PlayOneShot(sfx.menuClick);
+        SceneManager.LoadSceneAsync("Level Design");
     }
 
     void GameWon()

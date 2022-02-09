@@ -25,6 +25,7 @@ public class SoundEffects : ScriptableObject
 
     public AudioClip gameWon;
     public AudioClip gameLost;
+    public AudioClip menuClick;
 
     public AudioClip RandomPigSucked()
     {
