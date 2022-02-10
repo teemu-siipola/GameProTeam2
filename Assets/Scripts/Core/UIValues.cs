@@ -6,7 +6,7 @@ public class UIValues : MonoBehaviour
     public PlayerVacuum playerReference;
     public RectTransform gameEndPopup;
     public SoundEffects sfx;
-    public TMPro.TextMeshProUGUI inventory;
+    //public TMPro.TextMeshProUGUI inventory;
     public TMPro.TextMeshProUGUI timer;
     public TMPro.TextMeshProUGUI objective;
     public TMPro.TextMeshProUGUI gameEndText1, gameEndText2;
@@ -51,7 +51,7 @@ public class UIValues : MonoBehaviour
     void SetUI()
     {
         WriteObjective();
-        WriteInventory();
+        //WriteInventory();
     }
 
     void ReadInventory()
@@ -61,14 +61,14 @@ public class UIValues : MonoBehaviour
         if (inventoryPigs != playerReference.Inventory)
         {
             inventoryPigs = playerReference.Inventory; ;
-            WriteInventory();
+            //WriteInventory();
         }
     }
 
-    void WriteInventory()
-    {
-        inventory.text = inventoryPigs.ToString();
-    }
+    //void WriteInventory()
+    //{
+    //    inventory.text = inventoryPigs.ToString();
+    //}
 
     void ReadSeconds()
     {
