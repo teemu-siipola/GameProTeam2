@@ -245,7 +245,8 @@ public class PlayerVacuum : MonoBehaviour
                     pig.GetComponent<PigAnimator>().Vacuum();
                     once = true;
                 }
-                pig.transform.position = _vfx.transform.position + _vfx.transform.forward;
+                pig.transform.position = _vfx.transform.position + (_vfx.transform.forward * 2f);
+                pig.transform.LookAt(_vfx.transform.position - Vector3.up*0.5f);
                 animationTime -= Time.deltaTime;
             }
         }

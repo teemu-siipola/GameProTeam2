@@ -28,8 +28,8 @@ public class VacuumVfx : MonoBehaviour
 
     void Start()
     {
-        _distance = _control.vacuumRadius;
-        _radius = 2 * Mathf.Tan( Mathf.Deg2Rad * (_control.vacuumingAngle * 0.5f)) * _distance;
+        _distance = GameManager.Singleton.variables.playerVacuumRadius;
+        _radius = 2 * Mathf.Tan( Mathf.Deg2Rad * (GameManager.Singleton.variables.playerVacuumAngle * 0.5f)) * _distance;
     }
 
     void LateUpdate()
@@ -60,10 +60,5 @@ public class VacuumVfx : MonoBehaviour
             _particles[i].velocity = velocity;
         }
         _system.SetParticles(_particles, particles);
-    }
-
-    void Test()
-    {
-
     }
 }
