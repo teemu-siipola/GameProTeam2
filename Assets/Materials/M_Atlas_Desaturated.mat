@@ -38,9 +38,9 @@ Material:
     - _Saturation: 0.7
     - _Smoothness: 0
     - _Texture_Tiling: 1
-    - _Tint_Opacity: 1
-    - _Tint_Posterize_Steps: 4
-    - _Tint_Spread: 5
+    - _Tint_Opacity: 0.5
+    - _Tint_Posterize_Steps: 1
+    - _Tint_Spread: 2
     m_Colors:
     - _Color: {r: 0.7169812, g: 0.11160556, b: 0.11160556, a: 0}
     - _Layer_Color: {r: 0.6226415, g: 0.46939296, b: 0.35537556, a: 0}

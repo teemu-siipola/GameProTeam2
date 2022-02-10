@@ -52,13 +52,13 @@ Material:
     - _Tint_posterize: 3
     - _Tint_spread: 0.5
     m_Colors:
-    - _Color: {r: 0.58431375, g: 0.3921569, b: 0.2392157, a: 0}
+    - _Color: {r: 0.4774831, g: 0.5364488, b: 0.5471698, a: 0}
     - _Layer_Color: {r: 0.5120577, g: 0.5943396, b: 0.36725697, a: 0}
     - _Match_Ground_Color_Here: {r: 0.5410059, g: 0.7924528, b: 0.5121039, a: 0}
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Outline_Emissive_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Shadow_color_tint: {r: 0, g: 0.1088197, b: 0.5849056, a: 0}
-    - _Tint_Color: {r: 0.38679248, g: 0.22932631, b: 0.10399608, a: 1}
+    - _Tint_Color: {r: 0.22561412, g: 0.2748182, b: 0.2830189, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &173677555950826074
 MonoBehaviour:
