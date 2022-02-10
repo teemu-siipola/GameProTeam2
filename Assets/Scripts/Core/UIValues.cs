@@ -98,7 +98,7 @@ public class UIValues : MonoBehaviour
 
     void WriteObjective()
     {
-        objective.text = GameManager.Singleton.PigsFenced.ToString() + " / " + GameManager.Singleton.PigsRequired.ToString();
+        objective.text = GameManager.Singleton.PigsFenced.ToString() + "/" + GameManager.Singleton.PigsRequired.ToString();
     }
 
     public void MainMenu()

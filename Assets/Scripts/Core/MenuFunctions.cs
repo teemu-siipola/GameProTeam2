@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MenuFunctions : MonoBehaviour
 {
     public RectTransform mainMenuButtons;
+    public RectTransform buttonsImage;
     public RectTransform tutorialInfo;
     public SoundEffects sfx;
 
@@ -25,6 +26,7 @@ public class MenuFunctions : MonoBehaviour
         _source.PlayOneShot(sfx.menuClick);
         mainMenuButtons.gameObject.SetActive(false);
         tutorialInfo.gameObject.SetActive(true);
+        buttonsImage.gameObject.SetActive(false);
     }
 
     public void CloseTutorial()
@@ -32,6 +34,7 @@ public class MenuFunctions : MonoBehaviour
         _source.PlayOneShot(sfx.menuClick);
         mainMenuButtons.gameObject.SetActive(true);
         tutorialInfo.gameObject.SetActive(false);
+        buttonsImage.gameObject.SetActive(true);
     }
 
     public void Quit()
