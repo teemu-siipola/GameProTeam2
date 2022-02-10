@@ -21,7 +21,7 @@ public class PlayerSensor : MonoBehaviour
 
     void Start()
     {
-        print(_parent);
+        //print(_parent);
     }
 
     void OnTriggerStay(Collider collider)

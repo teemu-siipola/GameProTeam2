@@ -84,7 +84,6 @@ public class PlayerVacuum : MonoBehaviour
         {
             _vfx.Play();
             sfxSource.PlayOneShot(sfx.vacuumStart);
-            //sfxLoop.Play();
             loopSource.clip = sfx.vacuumLoop;
             loopSource.PlayDelayed(sfx.vacuumStart.length);
         }
@@ -99,7 +98,6 @@ public class PlayerVacuum : MonoBehaviour
         }
         loopSource.Stop();
         sfxSource.PlayOneShot(sfx.vacuumEnd);
-        //sfxEnd.PlayDelayed(0.1f);
     }
 
     void Vacuum()
@@ -164,47 +162,11 @@ public class PlayerVacuum : MonoBehaviour
 
     void StorePig(PigAI pig)
     {
-        sfxSource.PlayOneShot(sfx.vacuumSuck);
-        sfxBackup.PlayOneShot(sfx.RandomPigSucked());
+        //sfxSource.PlayOneShot(sfx.vacuumSuck);
+        //sfxBackup.PlayOneShot(sfx.RandomPigSucked());
         pig.gameObject.SetActive(false);
         _inventory++;
         _storedPigList.Add(pig);
-    }
-
-    IEnumerator VacuumPigRoutine(PigAI pig)
-    {
-        pig._pigState = PigAI.PigState.Vacuuming;
-        PigPhysicsFunctions physics = pig.GetComponent<PigPhysicsFunctions>();
-        physics.TurnPhysicsOff();
-        PigAnimator ator = pig.GetComponent<PigAnimator>();
-        ator.Vacuum();
-        Vector3 originalPosition = pig.transform.position;
-        float lerpTime = 3f;
-        float timer = 0f;
-        Quaternion startRotation = pig.transform.rotation;
-        while (_isVacuuming && timer < lerpTime)
-        {
-            pig.transform.position = Vector3.Lerp(originalPosition, _vfx.transform.position + _vfx.transform.forward, timer / lerpTime);
-            Quaternion target = Quaternion.LookRotation(transform.position - pig.transform.position);
-            Quaternion rot;
-            rot = Quaternion.Slerp(startRotation, target, timer / (lerpTime * 0.5f));
-            pig.transform.rotation = rot;
-            timer += Time.deltaTime;
-            yield return null;
-        }
-        yield return null;
-        ator.ResetAnimations();
-        if (_isVacuuming)
-        {
-            StorePig(pig);
-        }
-        else
-        {
-            pig.StartCoroutine(pig.ChangeToRollingAfterSeconds(0.2f));
-            physics.TurnPhysicsOn();
-            yield return new WaitForSeconds(0.2f);
-            ator.ResetAnimations();
-        }
     }
 
     IEnumerator VacuumPigRoutine2(PigAI pig)
@@ -220,7 +182,8 @@ public class PlayerVacuum : MonoBehaviour
         float animationTime = 1f;
         float rotationTime = 1f;
         float acceleration = GameManager.Singleton.variables.pigVacuumAccelerationTowardsPlayer;
-        bool once = false;
+        bool once1 = false;
+        bool once2 = false;
         while (_isVacuuming && animationTime > 0f && PigInSuctionSector(pig.transform))
         {
             yield return null;
@@ -240,14 +203,21 @@ public class PlayerVacuum : MonoBehaviour
             //player reached, enter 'seconds mode
             else
             {
-                if (!once)
+                if (!once1)
                 {
                     pig.GetComponent<PigAnimator>().Vacuum();
-                    once = true;
+                    once1 = true;
                 }
                 pig.transform.position = _vfx.transform.position + (_vfx.transform.forward * 2f);
                 pig.transform.LookAt(_vfx.transform.position - Vector3.up*0.5f);
                 animationTime -= Time.deltaTime;
+
+                if (animationTime < 0.75f && !once2)
+                {
+                    sfxSource.PlayOneShot(sfx.vacuumSuck);
+                    sfxBackup.PlayOneShot(sfx.RandomPigSucked());
+                    once2 = true;
+                }
             }
         }
 
@@ -258,6 +228,7 @@ public class PlayerVacuum : MonoBehaviour
         }
         else
         {
+            sfxSource.Stop();
             pig.StartCoroutine(pig.ChangeToRollingAfterSeconds(0.2f));
             physics.TurnPhysicsOn();
             yield return new WaitForSeconds(0.2f);
