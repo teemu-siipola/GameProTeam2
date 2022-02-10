@@ -22,6 +22,7 @@ public class SoundEffects : ScriptableObject
     public AudioClip pigSucked1;
     public AudioClip pigSucked2;
     public AudioClip pigSucked3;
+    public AudioClip pigBounce;
 
     public AudioClip gameWon;
     public AudioClip gameLost;

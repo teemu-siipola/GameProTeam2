@@ -16,7 +16,7 @@ public class MenuFunctions : MonoBehaviour
 
     public void StartGame()
     {
-        _source.PlayOneShot(sfx.pigIdle);
+        _source.PlayOneShot(sfx.menuClick);
         SceneManager.LoadSceneAsync("Level Design");
     }
 
