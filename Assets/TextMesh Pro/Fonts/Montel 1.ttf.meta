@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: f9aca032daae8fc418ee388b8d457017
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Montel
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: cfba51110f1ca7b4d8bcb650887c257a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
