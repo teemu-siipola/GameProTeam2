@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIValues : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class UIValues : MonoBehaviour
     public RectTransform gameEndPopup;
     public SoundEffects sfx;
     //public TMPro.TextMeshProUGUI inventory;
+    public Sprite victoryScreen;
+    public Sprite defeatScreen;
+    public Image image;
     public TMPro.TextMeshProUGUI timer;
     public TMPro.TextMeshProUGUI objective;
     public TMPro.TextMeshProUGUI gameEndText1, gameEndText2;
@@ -115,15 +119,13 @@ public class UIValues : MonoBehaviour
 
     void GameWon()
     {
-        gameEndText1.text = victoryMessage1;
-        gameEndText2.text = victoryMessage2;
+        image.sprite = victoryScreen;
         gameEndPopup.gameObject.SetActive(true);
     }
 
     void GameLost()
     {
-        gameEndText1.text = defeatMessage1;
-        gameEndText2.text = defeatMessage2;
+        image.sprite = defeatScreen;
         gameEndPopup.gameObject.SetActive(true);
     }
 }
