@@ -10284,6 +10284,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4707418767272108193}
     m_Modifications:
+    - target: {fileID: 105068688491955621, guid: 76d34143fdff62f4194eb9f48ffcb850, type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 105068688491955621, guid: 76d34143fdff62f4194eb9f48ffcb850, type: 3}
+      propertyPath: m_Size.z
+      value: 11.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 105068688491955621, guid: 76d34143fdff62f4194eb9f48ffcb850, type: 3}
+      propertyPath: m_Center.x
+      value: 10.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 105068688491955621, guid: 76d34143fdff62f4194eb9f48ffcb850, type: 3}
+      propertyPath: m_Center.z
+      value: -6.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2231226132712421818, guid: 76d34143fdff62f4194eb9f48ffcb850, type: 3}
       propertyPath: m_Name
       value: Prefab_Fence_Complete01_
