@@ -10,6 +10,7 @@ public class PlayerVacuum : MonoBehaviour
     public bool debug;
     public AudioSource sfxSource, sfxBackup, loopSource;
     public SoundEffects sfx;
+    public PlayerInventory inventory;
 
     public int Inventory { get { return _inventory; } }
 
@@ -70,10 +71,6 @@ public class PlayerVacuum : MonoBehaviour
                 StartCoroutine(ShootPig());
             else sfxSource.PlayOneShot(sfx.vacuumEmpty);
         }
-        
-
-        if (debug && Input.GetKeyDown(KeyCode.Mouse2))
-            _inventory++;
             
     }
 
@@ -102,7 +99,10 @@ public class PlayerVacuum : MonoBehaviour
 
     void Vacuum()
     {
-        ScanForPigs();
+        if (_inventory < 3)
+        {
+            ScanForPigs();
+        }
     }
 
     void ScanForPigs()
@@ -140,7 +140,7 @@ public class PlayerVacuum : MonoBehaviour
     IEnumerator ShootPig()
     {
         sfxSource.PlayOneShot(sfx.vacuumSpit);
-        _inventory--;
+        ChangeInventoryValue(false);
         yield return new WaitForSeconds(0.4f);
         PigAI pig = _storedPigList[ _storedPigList.Count - 1];
         _storedPigList.Remove(pig);
@@ -165,8 +165,22 @@ public class PlayerVacuum : MonoBehaviour
         //sfxSource.PlayOneShot(sfx.vacuumSuck);
         //sfxBackup.PlayOneShot(sfx.RandomPigSucked());
         pig.gameObject.SetActive(false);
-        _inventory++;
+        ChangeInventoryValue(true);
         _storedPigList.Add(pig);
+    }
+
+    void ChangeInventoryValue(bool increase)
+    {
+        if (increase)
+        {
+            _inventory++;
+            inventory.AddPig();
+        }
+        else
+        {
+            _inventory--;
+            inventory.RemovePig();
+        }
     }
 
     IEnumerator VacuumPigRoutine2(PigAI pig)
