@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1, y: 19}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1632201737910026638
 CanvasRenderer:
@@ -355,8 +355,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -81, y: 69}
-  m_SizeDelta: {x: 614, y: 205}
+  m_AnchoredPosition: {x: -111.244385, y: 48.7}
+  m_SizeDelta: {x: 350, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5119598607433033912
 CanvasRenderer:
@@ -730,7 +730,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '2 / 5
+  m_text: '2/5
 
 '
   m_isRightToLeft: 0
@@ -1513,7 +1513,6 @@ MonoBehaviour:
   playerReference: {fileID: 0}
   gameEndPopup: {fileID: 8816850165687658469}
   sfx: {fileID: 11400000, guid: 28e46ff8c4008a8418f8c1afa5fdc664, type: 2}
-  inventory: {fileID: 0}
   timer: {fileID: 6737370583740935766}
   objective: {fileID: 3251924848251018085}
   gameEndText1: {fileID: 5309062095572373859}
@@ -1654,8 +1653,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275, y: 120.7}
-  m_SizeDelta: {x: 614, y: 205}
+  m_AnchoredPosition: {x: 325, y: 86.566666}
+  m_SizeDelta: {x: 450, y: 150}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8403704134946790618
 CanvasRenderer:
@@ -1678,7 +1677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9433962, g: 0.7799499, b: 0.743147, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
